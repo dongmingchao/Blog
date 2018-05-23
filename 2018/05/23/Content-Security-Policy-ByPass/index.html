@@ -328,7 +328,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Content-Security-Policy-内容安全策略绕过"><span class="post-toc-number">1.</span> <span class="post-toc-text">Content Security Policy 内容安全策略绕过</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是CSP？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是CSP？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单来说"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">简单来说</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关键字"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">关键字</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Content-Security-Policy-内容安全策略绕过"><span class="post-toc-number">1.</span> <span class="post-toc-text">Content Security Policy 内容安全策略绕过</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是CSP？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是CSP？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单来说"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">简单来说</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关键字"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">关键字</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#范围性指令"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">范围性指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#不包括在default-src中的指令"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">不包括在default-src中的指令</span></a></li></ol></li></ol></li></ol></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -500,7 +500,7 @@
 <h2 id="简单来说"><a href="#简单来说" class="headerlink" title="简单来说"></a>简单来说</h2><p>CSP即是：通过在http(s)报文头添加<code>Content-Security-Policy</code>字段，规定此html文档其中不同类型的资源的来源，比如如下这个例子</p>
 <pre class=" language-json"><code class="language-json">Content-Security-Policy<span class="token operator">:</span> default-src 'self' trustedscripts.foo.com
 </code></pre>
-<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p><code>&#39;none&#39;</code><br>    代表空集；即不匹配任何 URL。两侧单引号是必须的。<br><code>&#39;self&#39;</code><br>    代表和文档同源，包括相同的 URL 协议和端口号。两侧单引号是必须的。<br><code>&#39;unsafe-inline&#39;</code><br>    允许使用内联资源，如内联的\<script> 元素、javascript: URL、内联的事件处理函数和内联的 \<style> 元素。两侧单引号是必须的。<br><code>&#39;unsafe-eval&#39;</code><br>    允许使用 eval() 等通过字符串创建代码的方法。两侧单引号是必须的。<br><code>data:</code><br>    允许 <code>data: URI</code> 作为内容来源。这是不安全的，因为攻击者可以精心构造 data: URI 来攻击。请谨慎地使用这个源，并确保不要用于脚本。<br><code>mediastream:</code><br>    允许 mediastream: URI 作为内容源。<br>例子2：</p>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p><code>&#39;none&#39;</code><br>    代表空集；即不匹配任何 URL。两侧单引号是必须的。<br><code>&#39;self&#39;</code><br>    代表和文档同源，包括相同的 URL 协议和端口号。两侧单引号是必须的。<br><code>&#39;unsafe-inline&#39;</code><br>    允许使用内联资源，如内联的<code>&lt;script&gt;</code> 元素、javascript: URL、内联的事件处理函数和内联的 <code>&lt;style&gt;</code> 元素。两侧单引号是必须的。<br><code>&#39;unsafe-eval&#39;</code><br>    允许使用 eval() 等通过字符串创建代码的方法。两侧单引号是必须的。<br><code>data:</code><br>    允许 <code>data: URI</code> 作为内容来源。这是不安全的，因为攻击者可以精心构造 data: URI 来攻击。请谨慎地使用这个源，并确保不要用于脚本。<br><code>mediastream:</code><br>    允许 mediastream: URI 作为内容源。<br>例子2：</p>
 <pre class=" language-json"><code class="language-json">Content-Security-Policy<span class="token operator">:</span> default-src 'self'<span class="token punctuation">;</span> img-src 'self' data<span class="token operator">:</span><span class="token punctuation">;</span> media-src mediastream<span class="token operator">:</span>
 </code></pre>
 <h3 id="范围性指令"><a href="#范围性指令" class="headerlink" title="范围性指令"></a>范围性指令</h3><table>
@@ -517,7 +517,7 @@
 </tr>
 <tr>
 <td><code>child-src</code></td>
-<td>child-src 指定定义了 web workers 以及嵌套的浏览上下文（\<frame> 和 \<iframe> ）的源。推荐使用该指令，而不是被废弃的 frame-src 指令。对于 web workers，不符合要求的请求会被当做致命网络错误。</td>
+<td>child-src 指定定义了 web workers 以及嵌套的浏览上下文（<code>&lt;frame&gt;</code> 和 <code>&lt;iframe&gt;</code> ）的源。推荐使用该指令，而不是被废弃的 frame-src 指令。对于 web workers，不符合要求的请求会被当做致命网络错误。</td>
 </tr>
 <tr>
 <td><code>connect-src</code></td>
@@ -533,11 +533,11 @@
 </tr>
 <tr>
 <td><code>media-src</code></td>
-<td>media-src 定义\<audio> 和 \<video> 标签的有效源.</td>
+<td>media-src 定义<code>&lt;audio&gt;</code> 和 <code>&lt;video&gt;</code> 标签的有效源.</td>
 </tr>
 <tr>
 <td><code>object-src</code></td>
-<td>object-src 定义\<object>, \<embed>, 和 \<applet> 的有效源.</td>
+<td>object-src 定义<code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, 和 <code>&lt;applet&gt;</code> 的有效源.</td>
 </tr>
 <tr>
 <td><code>script-src</code></td>
@@ -567,11 +567,11 @@
 <p>The <code>reflected-xss</code> directive instructs a user agent to  activate or deactivate any heuristics used to filter or block reflected  cross-site scripting attacks. Valid values are <code>allow</code>, <code>block</code>, and <code>filter</code>. This directive is not supported in the  element.</p>
 <p><strong>Note:</strong> This directive is ignored if it is contained in a <code>meta</code> element.</p>
 <p><code>report-uri</code></p>
-<p>The <code>report-uri</code> directive instructs the user agent to  report attempts to violate the Content Security Policy. These violation  reports consist of <a href="https://developer.mozilla.org/en/JSON">JSON</a> documents sent via an HTTP <code>POST</code> request to the specified URI. See <a href="https://developer.mozilla.org/en/Security/CSP/Using_CSP_violation_reports">Using CSP violation reports</a> for details. This directive is not supported in the  element.</p>
+<p>The <code>report-uri</code> directive instructs the user agent to  report attempts to violate the Content Security Policy. These violation  reports consist of <a href="https://developer.mozilla.org/en/JSON" target="_blank" rel="noopener">JSON</a> documents sent via an HTTP <code>POST</code> request to the specified URI. See <a href="https://developer.mozilla.org/en/Security/CSP/Using_CSP_violation_reports" target="_blank" rel="noopener">Using CSP violation reports</a> for details. This directive is not supported in the  element.</p>
 <p><code>sandbox</code></p>
 <p>The sandbox directive applies restrictions to a page’s actions  including preventing popups, preventing the execution of plugins and  scripts, and enforcing a same-origin policy. This directive is not supported in the  element or by the <code>Content-Security-policy-Report-Only</code> header field.</p>
-<p>来自：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/CSP/CSP_policy_directives">MDN</a></p>
-</script></p>
+<p>来自：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/CSP/CSP_policy_directives" target="_blank" rel="noopener">MDN</a></p>
+
     
 
     
